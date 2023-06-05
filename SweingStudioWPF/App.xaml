@@ -2,8 +2,16 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:SweingStudioWPF"
-             StartupUri="MainWindow.xaml">
+             StartupUri="MVVM/View/LoginView.xaml">
     <Application.Resources>
-         
+        <Style x:Key="Pacifico-Regular">
+            <Setter Property="TextElement.FontFamily"
+                    Value="Fonts/#Pacifico" />
+        </Style>
+
+        <Style x:Key="Comfortaa-Medium">
+            <Setter Property="TextElement.FontFamily"
+                    Value="Fonts/#Comfortaa" />
+        </Style>
     </Application.Resources>
 </Application>
