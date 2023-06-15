@@ -4,6 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SweingStudioWPF.MVVM.View"
+        xmlns:viewModel="clr-namespace:SweingStudioWPF.MVVM.ViewModel"
+        xmlns:customcontrols="clr-namespace:SweingStudioWPF.CustomControls"
         mc:Ignorable="d"
         Title="LoginView"
         Height="550"
@@ -14,6 +16,20 @@
         Background="Transparent"
         AllowsTransparency="True"
         MouseDown="Window_MouseDown">
+
+    <Window.DataContext>
+        <viewModel:LoginViewModel />
+    </Window.DataContext>
+
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibility" />
+    </Window.Resources>
+
+    <Window.Visibility>
+        <Binding Path="IsViesVisable"
+                 Mode="OneWay"
+                 Converter="{StaticResource BooleanToVisibility}" />
+    </Window.Visibility>
 
     <!--Background preferences-->
     <Border CornerRadius="17">
@@ -164,6 +180,7 @@
                                Margin="0,25,0,0" />
 
                     <TextBox x:Name="User_txt"
+                             Text="{Binding Username}"
                              FontSize="14"
                              FontWeight="Medium"
                              Style="{DynamicResource Comfortaa-Medium}"
@@ -184,19 +201,10 @@
                                Style="{DynamicResource Comfortaa-Medium}"
                                Margin="0,15,0,0" />
 
-                    <PasswordBox x:Name="Password_txt"
-                                 FontSize="14"
-                                 FontWeight="Medium"
-                                 Style="{DynamicResource Comfortaa-Medium}"
-                                 Foreground="#fff"
-                                 Background="Transparent"
-                                 CaretBrush="#f1f1f1"
-                                 BorderBrush="#ff5d4f"
-                                 BorderThickness="0,0,0,2"
-                                 Height="28"
-                                 VerticalContentAlignment="Center"
-                                 Margin="0,0,0,0">
-                    </PasswordBox>
+                    <customcontrols:BindablePasswordBox Password="{Binding Password}"
+                                                        Height="28"
+                                                        Margin="0,0,0,0">
+                    </customcontrols:BindablePasswordBox>
 
                     <Button x:Name="Login_btn"
                             BorderThickness="0"
@@ -240,19 +248,19 @@
                     <StackPanel Orientation="Horizontal"
                                 HorizontalAlignment="Center"
                                 Margin="0,15,0,0">
-                    <TextBlock Text="Забыли пароль?"
-                               Foreground="#f1f1f1"
-                               FontSize="14"
-                               FontWeight="Medium"
-                               Style="{DynamicResource Comfortaa-Medium}"/>
+                        <TextBlock Text="Забыли пароль?"
+                                   Foreground="#f1f1f1"
+                                   FontSize="14"
+                                   FontWeight="Medium"
+                                   Style="{DynamicResource Comfortaa-Medium}" />
 
-                    <TextBlock Text="Сброс"
-                               Foreground="#fff"
-                               FontSize="14"
-                               FontWeight="Medium"
-                               Style="{DynamicResource Comfortaa-Medium}"
-                               Cursor="Hand"
-                               Margin="8,0,0,0"/>
+                        <TextBlock Text="Сброс"
+                                   Foreground="#fff"
+                                   FontSize="14"
+                                   FontWeight="Medium"
+                                   Style="{DynamicResource Comfortaa-Medium}"
+                                   Cursor="Hand"
+                                   Margin="8,0,0,0" />
                     </StackPanel>
 
                 </StackPanel>
