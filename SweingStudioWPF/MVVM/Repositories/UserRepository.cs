@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Net;
@@ -19,14 +20,14 @@ namespace SweingStudioWPF.MVVM.Model.Repositories
         public bool AuthenticateUser(NetworkCredential credential)
         {
             bool validUser;
-            using (var connection=GetConnection())
-            using (var command=new SqlCommand())
+            using (var connection = GetConnection())
+            using (var command = new SqlCommand())
             {
                 connection.Open();
                 command.Connection = connection;
-                command.CommandText = "SELECT *FROM [User] WHERE username=@username and [password]=@password";
-                command.Parameters.Add("@username", System.Data.SqlDbType.NVarChar).Value = credential.UserName;
-                command.Parameters.Add("@password", System.Data.SqlDbType.NVarChar).Value = credential.Password;
+                command.CommandText = "select *from [User] where username=@username and [password]=@password";
+                command.Parameters.Add("@username", SqlDbType.NVarChar).Value = credential.UserName;
+                command.Parameters.Add("@password", SqlDbType.NVarChar).Value = credential.Password;
                 validUser = command.ExecuteScalar() == null ? false : true;
             }
             return validUser;

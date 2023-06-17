@@ -70,6 +70,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="SweingStudioDB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SweingStudioDB.xsd</DependentUpon>
+    </Compile>
     <Page Include="CustomControls\BindablePasswordBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -122,6 +127,17 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="SweingStudioDB.xsc">
+      <DependentUpon>SweingStudioDB.xsd</DependentUpon>
+    </None>
+    <None Include="SweingStudioDB.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SweingStudioDB.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SweingStudioDB.xss">
+      <DependentUpon>SweingStudioDB.xsd</DependentUpon>
+    </None>
     <Resource Include="Fonts\Comfortaa-Medium.ttf" />
     <Resource Include="Fonts\Pacifico-Regular.ttf" />
     <None Include="Properties\Settings.settings">

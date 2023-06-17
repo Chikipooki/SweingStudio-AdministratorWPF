@@ -12,7 +12,7 @@ namespace SweingStudioWPF.MVVM.Model.Repositories
         private readonly string _connectionString;
         public RepositoryBase()
         {
-            _connectionString = "Server=(local); Database=SweingStudioDB; Integrated Security=true";
+            _connectionString = "Data Source=DESKTOP-5QGJUKG\\SQLEXPRESS;Initial Catalog=SweingStudioDB;Integrated Security=True";
         }
 
         protected SqlConnection GetConnection()
