@@ -92,7 +92,7 @@ namespace SweingStudioWPF.MVVM.ViewModel
         private bool CanExecuteLoginCommand(object obj)
         {
             bool validData;
-            if (string.IsNullOrWhiteSpace(Username) || Username.Length < 3 || Password.Length < 3 || Password == null)
+            if (string.IsNullOrWhiteSpace(Username) || Username.Length < 3 || Password == null || Password.Length < 3 )
                 validData = false;
             else
                 validData = true;
