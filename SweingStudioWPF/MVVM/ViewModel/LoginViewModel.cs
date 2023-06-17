@@ -1,8 +1,13 @@
-﻿using System;
+﻿using SweingStudioWPF.MVVM.Model;
+using SweingStudioWPF.MVVM.Model.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Security;
+using System.Security.Principal;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Web;
 using System.Windows.Input;
@@ -16,6 +21,9 @@ namespace SweingStudioWPF.MVVM.ViewModel
         private SecureString _password;
         private string _errorMessege;
         private bool _isViewVisable = true;
+
+        private IUserRepository userRepository;
+
 
         //Properties
         public string Username
@@ -76,6 +84,7 @@ namespace SweingStudioWPF.MVVM.ViewModel
         //Constructor
         public LoginViewModel()
         {
+            userRepository = new UserRepository();
             LoginCommand = new ViewModelCommand(ExecuteLoginCommand, CanExecuteLoginCommand);
             RecoverPasswordCommand = new ViewModelCommand(p => ExecuteRecoverPassCommand("", ""));
         }
@@ -92,7 +101,16 @@ namespace SweingStudioWPF.MVVM.ViewModel
 
         private void ExecuteLoginCommand(object obj)
         {
-            throw new NotImplementedException();
+            var isValidUser = userRepository.AuthenticateUser(new NetworkCredential(Username, Password));
+            if (isValidUser)
+            {
+                Thread.CurrentPrincipal = new GenericPrincipal(new GenericIdentity(Username), null);
+                IsViewVisable = false;
+            }
+            else
+            {
+                ErrorMessege = "* Не верное имя пользователя или пароль";
+            }
         }
 
         private void ExecuteRecoverPassCommand(string username, string email)
