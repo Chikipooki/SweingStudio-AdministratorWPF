@@ -180,7 +180,7 @@
                                Margin="0,25,0,0" />
 
                     <TextBox x:Name="User_txt"
-                             Text="{Binding Username}"
+                             Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}"
                              FontSize="14"
                              FontWeight="Medium"
                              Style="{DynamicResource Comfortaa-Medium}"
@@ -201,12 +201,21 @@
                                Style="{DynamicResource Comfortaa-Medium}"
                                Margin="0,15,0,0" />
 
-                    <customcontrols:BindablePasswordBox Password="{Binding Password}"
+                    <customcontrols:BindablePasswordBox Password="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                                         Height="28"
                                                         Margin="0,0,0,0">
                     </customcontrols:BindablePasswordBox>
 
+                    <TextBlock Text="{Binding ErrorMessege}"
+                               Foreground="#ff5d4f"
+                               FontSize="14"
+                               FontWeight="Medium"
+                               Style="{DynamicResource Comfortaa-Medium}"
+                               Margin="0,10,0,0" 
+                               TextWrapping="Wrap"/>
+
                     <Button x:Name="Login_btn"
+                            Command="{Binding LoginCommand}"
                             BorderThickness="0"
                             Content="Вход"
                             FontFamily="Comfortaa, Monotype Corsiva"
@@ -215,8 +224,7 @@
                             FontWeight="Bold"
                             Cursor="Hand"
                             Grid.Column="2"
-                            Margin="0,50,0,0"
-                            Click="Login_btn_Click">
+                            Margin="0,25,0,0">
                         <Button.Style>
                             <Style TargetType="Button">
                                 <Setter Property="Background"
