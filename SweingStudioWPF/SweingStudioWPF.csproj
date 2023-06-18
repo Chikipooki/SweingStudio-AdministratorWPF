@@ -70,6 +70,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="MVVM\Model\UserAccountModel.cs" />
+    <Compile Include="MVVM\ViewModel\MainViewModel.cs" />
     <Compile Include="SweingStudioDB.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
