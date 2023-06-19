@@ -4,14 +4,8 @@
              xmlns:local="clr-namespace:SweingStudioWPF"
              Startup="ApplicationStart">
     <Application.Resources>
-        <Style x:Key="Pacifico-Regular">
-            <Setter Property="TextElement.FontFamily"
-                    Value="Fonts/#Pacifico" />
-        </Style>
 
-        <Style x:Key="Comfortaa-Medium">
-            <Setter Property="TextElement.FontFamily"
-                    Value="Fonts/#Comfortaa" />
-        </Style>
+        <ResourceDictionary Source="/Styles/UIcolors.xaml" />
+
     </Application.Resources>
 </Application>
