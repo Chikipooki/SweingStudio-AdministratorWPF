@@ -4,8 +4,8 @@
     <!--Background Colors-->
     <Color x:Key="primaryColor1">#ff8d73</Color>
     <Color x:Key="primaryColor2">#ffdf76</Color>
-    <Color x:Key="secondaryColor1">#24105F</Color>
-    <Color x:Key="secondaryColor2">#210F55</Color>
+    <Color x:Key="secondaryColor1">#95e1d3</Color>
+    <Color x:Key="secondaryColor2">#25e1d3</Color>
     <!--Window Border Colors-->
     <Color x:Key="winBorderColor1">#ff8d83</Color>
     <Color x:Key="winBorderColor2">#ffdf86</Color>
@@ -33,7 +33,7 @@
                      Color="#FBA1AA" />
     <!--Font Colors-->
     <SolidColorBrush x:Key="titleColor1"
-                     Color="#E0E1F1" />
+                     Color="#FFF" />
     <SolidColorBrush x:Key="titleColor2"
                      Color="#D5CFF5" />
     <SolidColorBrush x:Key="titleColor3"
